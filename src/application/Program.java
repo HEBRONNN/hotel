@@ -11,18 +11,6 @@ import model.exceptions.DomainException;
 
 public class Program {
 
-	/*
-	 * Room Number: 
-	 * Check-in date:
-	 * Check-out date: 
-	 * Reservation: Room Number, Check-in, Check-out, Nights  
-	 * 
-	 * Enter data to update the reservation:
-	 * 
-	 * Error in reservation:
-	 * 
-	 */
-
 	public static void main(String[] args) {
 
 		Locale.setDefault(Locale.US);
@@ -33,7 +21,7 @@ public class Program {
 		try {
 			System.out.print("Room Number: ");
 			int number = sc.nextInt();
-	
+			
 			System.out.print("Check-in date (dd/mm/yyyy): ");
 			Date checkIn = sdf.parse(sc.next());
 	
@@ -60,6 +48,9 @@ public class Program {
 		}
 		catch (DomainException e) {
 			System.out.println("Error in reservation: " + e.getMessage());
+		}
+		catch (RuntimeException e) {
+			System.out.println("Unexpected error");
 		}
 		
 		sc.close();
